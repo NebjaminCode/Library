@@ -1,0 +1,43 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: lightgrey;
+    margin: auto;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 30px;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    text-align: center;
+    background: white;
+    padding: 0;
+}
+
+main {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    background: pink;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+#bookList {
+    text-align: left;
+    margin: auto;
+    margin-top: 25px;
+    width: 90%;
+}
