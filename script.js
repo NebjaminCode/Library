@@ -11,11 +11,18 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    
+
 }
 
 // "New Book" button selector
 const newBookButton = document.querySelector('#newBook');
+
+// "New Book" form
+const newBookForm = document.querySelector("#newBookForm")
+
+newBookButton.addEventListener('click', function() {
+    newBookForm.style.display = 'block';
+})
 
 // sample book to check render
 const harry = new Book("Harry Potter & The Chamber of Secrets", "JK Rowling", 341, "Yes")

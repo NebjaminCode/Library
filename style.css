@@ -35,6 +35,10 @@ main {
     text-align: center;
 }
 
+#newBookForm {
+    display: none;
+}
+
 #bookList {
     text-align: left;
     margin: auto;
