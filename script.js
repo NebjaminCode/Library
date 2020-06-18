@@ -1,6 +1,21 @@
-let myLibrary = [];
+// allows New Book button to display user input form
+const newBookButton = document.querySelector('#newBook');
+const newBookForm = document.querySelector("#newBookForm")
+newBookButton.addEventListener('click', function() {
+    newBookForm.style.display = 'block';
+})
 
-function Book(title, author, pages, read) {
+// "submit" button at the end of user form
+const submitNewBook = document.querySelector('#submit');
+
+// sample book
+const harry = new Book("Harry Potter & The Chamber of Secrets", "JK Rowling", 341, "Yes")
+
+// library array containing all books. Starts with example book "harry"
+let myLibrary = [harry];
+
+// constructor function for creating new books
+function Book (title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -9,47 +24,78 @@ function Book(title, author, pages, read) {
         return `${title} by ${author}, ${pages} pages, ${read}`;
     }
 }
+    let newBook;
+    // getting new values from user input
+    let newTitle = document.getElementById('title')
+    let newAuthor = document.getElementById('author')
+    let newPages = document.getElementById('pageCount')
+    let newRead = document.getElementById('read')
 
+// function to add newly created books to library array
 function addBookToLibrary() {
+    // creating new element with user input
+    newBook = new Book(newTitle.value, newAuthor.value, newPages.value, newRead.value);
+}    
 
-}
+    // rendering function
+    var render = function(template, node) {
+        node.innerHTML += template;
+    }
 
-// "New Book" button selector
-const newBookButton = document.querySelector('#newBook');
+    let node = document.querySelector('#bookList')
 
-// "New Book" form
-const newBookForm = document.querySelector("#newBookForm")
+    // rendering table head
+    function renderHead() {
+        render(`<thead id='thead'>
+            <td>Title<td>
+            <td>Author<td>
+            <td>Page Count<td>
+            <td>Read?<td>
+            </thead>`,
+        document.querySelector('#bookList')
+    )
+    };
+    renderHead()
 
-newBookButton.addEventListener('click', function() {
-    newBookForm.style.display = 'block';
+function rendering () {
+    // rendering myLibrary contents
+    myLibrary.forEach(function(element){
+        var template = `<tr>
+                            <td>${element.title}<td>
+                            <td>${element.author}<td>
+                            <td>${element.pages}<td>
+                            <td>${element.read}<td>`;
+        render(template, node)
 })
-
-// sample book to check render
-const harry = new Book("Harry Potter & The Chamber of Secrets", "JK Rowling", 341, "Yes")
-myLibrary.push(harry)
-
-var render = function(template, node) {
-    node.innerHTML += template;
 }
 
-// rendering table head
-render(`<thead id='thead'>
-        <td>Title<td>
-        <td>Author<td>
-        <td>Page Count<td>
-        <td>Read?<td>
-        </thead>`,
-    document.querySelector('#bookList')
-);
 
-// rendering myLibrary contents
-myLibrary.forEach(function(element){
-    var template = `<tr>
-                        <td>${element.title}<td>
-                        <td>${element.author}<td>
-                        <td>${element.pages}<td>
-                        <td>${element.read}<td>`;
-    render(template, document.querySelector('#bookList'))
+
+rendering();
+submitNewBook.addEventListener('click', function() {   
+    node.innerHTML = '';
+    renderHead()
+    addBookToLibrary()
+    myLibrary.push(newBook)
+    rendering()
+        newTitle.value = "";
+        newAuthor.value = "";
+        newPages.value = "";
+        newRead.value = "";
+
+
+// styling
+const table = document.querySelector('table')
+const topRow = document.querySelector('tr')
+
+topRow.style.background = 'white';
+topRow.style.marginBottom = '20px';
+topRow.style.textAlign = 'center';
+topRow.style.fontSize = '1.3em';
+
+table.style.background = 'grey';
+table.style.borderCollapse = 'collapse';
+
 })
 
 const table = document.querySelector('table')
@@ -62,73 +108,3 @@ topRow.style.fontSize = '1.3em';
 
 table.style.background = 'grey';
 table.style.borderCollapse = 'collapse';
-
-
-
-
-
-
-
-
-
-
-
-/*
-render(myLibrary, document.getElementById('bookList'))
-
-
-const newBookButton = document.querySelector('#newBook');
-const bookList = document.querySelector('#bookList');
-const rowData = Object.keys(myLibrary[0])
-
-let myLibrary = [];
-
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function() {
-        return `${title} by ${author}, ${pages} pages, ${read}`;
-    }
-}
-
-function addBookToLibrary() {
-
-}
-
-// sample book to check render
-const harry = new Book("Harry Potter & The Chamber of Secrets", "JK Rowling", 341, "Yes")
-myLibrary.push(harry)
-
-// render function to make content appear on screen
-var render = function(template, node) {
-    node.innerHTML += template;
-}
-// creating table cells & content
-myLibrary.forEach(function(element){
-    var template = `<tr>
-                        <td>${element.title}<td>
-                        <td>${element.author}<td>
-                        <td>${element.pages}<td>
-                        <td>${element.read}<td>`;
-    render(template, document.querySelector('#bookList'))
-})
-
-/*
-// table head generating function
-function generateTableHead(table, rowData) {
-    let tHead = table.createTHead();
-    let row = tHead.insertRow();
-    for (let key of rowData) {
-        let th = document.createElement('th');
-        let text = document.createTextNode(key);
-        th.appendChild(text);
-        row.appendChild(th);
-    }
-}
-
-// table generating function
-generateTableHead(bookList, rowData)
-*/
-
