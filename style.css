@@ -30,7 +30,7 @@ main {
     width: 95%;
     height: 100%;
     margin: auto;
-    background: pink;
+    background: rgb(175, 194, 202);
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -50,11 +50,19 @@ main {
     transition: visibility 0s, opacity 1s, margin-top .5s ease-in-out;
 }
 
+#table_border {
+    margin: auto;
+    width: 95%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 #bookList {
     text-align: left;
     margin: auto;
     margin-top: 25px;
-    width: 95%;
+    width: 100%;
+    border-spacing: 0;
 }
 
 #newBook {
@@ -63,14 +71,11 @@ main {
     padding: 15px;
     width: 20%;
     margin-top: 20px;
-    border-radius: 5px;
 }
 
 tr {
     background: lightgrey;
     border: 1px solid darkgray;
+    height: 10vh;
 }
 
-table {
-    border-collapse: collapse;
-}

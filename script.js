@@ -71,14 +71,18 @@ function rendering () {
 })
 }
 
-
-
 rendering();
 submitNewBook.addEventListener('click', function() {   
     node.innerHTML = '';
     renderHead()
     addBookToLibrary()
-    myLibrary.push(newBook)
+
+    if (newBook.title && newBook.author && newBook.pages) {
+            myLibrary.push(newBook)     
+    } else {
+        alert('You have not filled out the form correctly, please try again.')
+    }
+
     rendering()
         newTitle.value = "";
         newAuthor.value = "";
