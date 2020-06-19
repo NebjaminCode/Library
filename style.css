@@ -1,6 +1,7 @@
 html {
     width: 100%;
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 
 h1 {
     margin: 0;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 header {
@@ -22,6 +23,7 @@ header {
     text-align: center;
     background: white;
     padding: 0;
+    font-size: 2em;
 }
 
 main {
@@ -36,12 +38,39 @@ main {
 }
 
 #newBookForm {
-    display: none;
+    visibility: hidden;
+    margin: auto;
+    margin-top: -65px;
+    margin-bottom: 20px;
+    background: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+    opacity: 0;
+    transition: visibility 0s, opacity 1s, margin-top .5s ease-in-out;
 }
 
 #bookList {
     text-align: left;
     margin: auto;
     margin-top: 25px;
-    width: 90%;
+    width: 95%;
+}
+
+#newBook {
+    background: white;
+    border: none;
+    padding: 15px;
+    width: 20%;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+tr {
+    background: lightgrey;
+    border: 1px solid darkgray;
+}
+
+table {
+    border-collapse: collapse;
 }

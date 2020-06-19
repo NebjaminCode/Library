@@ -2,7 +2,9 @@
 const newBookButton = document.querySelector('#newBook');
 const newBookForm = document.querySelector("#newBookForm")
 newBookButton.addEventListener('click', function() {
-    newBookForm.style.display = 'block';
+    newBookForm.style.visibility = 'visible';
+    newBookForm.style.opacity = '1';
+    newBookForm.style.marginTop = '50px'
 })
 
 // "submit" button at the end of user form
@@ -82,7 +84,9 @@ submitNewBook.addEventListener('click', function() {
         newAuthor.value = "";
         newPages.value = "";
         newRead.value = "";
-
+    newBookForm.style.visibility = 'hidden';
+    newBookForm.style.marginTop = '-75px'
+    newBookForm.style.opacity = '0';
 
 // styling
 const table = document.querySelector('table')
@@ -95,7 +99,6 @@ topRow.style.fontSize = '1.3em';
 
 table.style.background = 'grey';
 table.style.borderCollapse = 'collapse';
-
 })
 
 const table = document.querySelector('table')
@@ -105,6 +108,3 @@ topRow.style.background = 'white';
 topRow.style.marginBottom = '20px';
 topRow.style.textAlign = 'center';
 topRow.style.fontSize = '1.3em';
-
-table.style.background = 'grey';
-table.style.borderCollapse = 'collapse';

@@ -10,8 +10,11 @@
         <h1>Library</h1>
     </header>
     <main>
-        <button id='newBook'>New Book</button>
-        <form id="newBookForm">
+        
+        
+        <table id="bookList">
+        </table>
+           <form id="newBookForm">
           <input type="text" id="title" name="title" placeholder="Title">
           <input type="text" id="author" name="author" placeholder="Author">
           <input type="text" id="pageCount" name="pageCount" placeholder="Page Count">
@@ -19,11 +22,8 @@
           <input type="checkbox" id='read' name='read'>
           <button type='button' id='submit'>Submit</button>
         </form>
-        
-        <table id="bookList">
-          
-        </table>
-    </main>
+        <button id='newBook'>New Book</button>
+</main>
   <script type="module" src='script.js'>
   </script>
 </body>
