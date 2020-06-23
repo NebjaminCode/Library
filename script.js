@@ -26,6 +26,7 @@ function Book (title, author, pages, read) {
         return `${title} by ${author}, ${pages} pages, ${read}`;
     }
 }
+
     let newBook;
     // getting new values from user input
     let newTitle = document.getElementById('title')
@@ -35,8 +36,12 @@ function Book (title, author, pages, read) {
 
 // function to add newly created books to library array
 function addBookToLibrary() {
-    // creating new element with user input
-    newBook = new Book(newTitle.value, newAuthor.value, newPages.value, newRead.value);
+    // creating new element with user input & checking for read status
+    if (newRead.checked == true) {
+        newBook = new Book(newTitle.value, newAuthor.value, newPages.value, "Yes");
+    } else {
+        newBook = new Book(newTitle.value, newAuthor.value, newPages.value, "No") 
+    }
 }    
 
     // rendering function
@@ -77,7 +82,7 @@ submitNewBook.addEventListener('click', function() {
     renderHead()
     addBookToLibrary()
 
-    if (newBook.title && newBook.author && newBook.pages) {
+    if (newBook.title && newBook.author && newBook.pages && newBook.pages >= 0) {
             myLibrary.push(newBook)     
     } else {
         alert('You have not filled out the form correctly, please try again.')
