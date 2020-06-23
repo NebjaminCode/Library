@@ -92,7 +92,7 @@ submitNewBook.addEventListener('click', function() {
         newTitle.value = "";
         newAuthor.value = "";
         newPages.value = "";
-        newRead.value = "";
+        newRead.checked = false;
     newBookForm.style.visibility = 'hidden';
     newBookForm.style.marginTop = '-75px'
     newBookForm.style.opacity = '0';

@@ -55,13 +55,13 @@ main {
     width: 95%;
     border-radius: 15px;
     overflow: hidden;
+    border: 7px solid grey
 }
 
 #bookList {
     text-align: left;
     margin: auto;
-    margin-top: 25px;
-    width: 100%;
+    width: 101%;
     border-spacing: 0;
 }
 
