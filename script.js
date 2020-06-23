@@ -1,6 +1,7 @@
 // allows New Book button to display user input form
 const newBookButton = document.querySelector('#newBook');
 const newBookForm = document.querySelector("#newBookForm")
+
 newBookButton.addEventListener('click', function() {
     newBookForm.style.visibility = 'visible';
     newBookForm.style.opacity = '1';
