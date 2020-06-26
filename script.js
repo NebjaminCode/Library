@@ -59,6 +59,7 @@ function addBookToLibrary() {
             <td>Author<td>
             <td>Page Count<td>
             <td>Read?<td>
+            <td>Remove?<td>
             </thead>`,
         document.querySelector('#bookList')
     )
@@ -72,10 +73,13 @@ function rendering () {
                             <td>${element.title}<td>
                             <td>${element.author}<td>
                             <td>${element.pages}<td>
-                            <td>${element.read}<td>`;
+                            <td>${element.read}<td>
+                            <td id='remover'><td>`;
         render(template, node)
 })
 }
+
+
 
 rendering();
 submitNewBook.addEventListener('click', function() {   
@@ -110,6 +114,8 @@ topRow.style.fontSize = '1.3em';
 table.style.background = 'grey';
 table.style.borderCollapse = 'collapse';
 })
+
+
 
 const table = document.querySelector('table')
 const topRow = document.querySelector('tr')
