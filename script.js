@@ -69,13 +69,15 @@ function addBookToLibrary() {
 function rendering () {
     // rendering myLibrary contents
     myLibrary.forEach(function(element){
-        var template = `<tr>
-                            <td>${element.title}<td>
-                            <td>${element.author}<td>
-                            <td>${element.pages}<td>
-                            <td>${element.read}<td>
-                            <td id='remover'><td>`;
-        render(template, node)
+        var template = `<tr class='row'>
+                            <td style="padding-left: 1%">${element.title}<td>
+                            <td style="text-align:center">${element.author}<td>
+                            <td style="text-align:center">${element.pages}<td>
+                            <td style="text-align:center">${element.read}<td>
+                            <td style="text-align:center">${element.innerHTML ='<input type="button" >'}<td>`;
+
+        render(template, node);
+
 })
 }
 
@@ -114,7 +116,6 @@ topRow.style.fontSize = '1.3em';
 table.style.background = 'grey';
 table.style.borderCollapse = 'collapse';
 })
-
 
 
 const table = document.querySelector('table')
