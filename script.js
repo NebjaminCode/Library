@@ -70,15 +70,24 @@ function rendering () {
     // rendering myLibrary contents
     myLibrary.forEach(function(element){
         var template = `<tr class='row'>
-                            <td style="padding-left: 1%">${element.title}<td>
-                            <td style="text-align:center">${element.author}<td>
-                            <td style="text-align:center">${element.pages}<td>
-                            <td style="text-align:center">${element.read}<td>
-                            <td style="text-align:center">${element.innerHTML ='<input type="button" >'}<td>`;
+                    <td style="padding-left: 1%">${element.title}<td>
+                    <td style="text-align:center">${element.author}<td>
+                    <td style="text-align:center">${element.pages}<td>
+                    <td id="readCell" style="text-align:center">${element.read}<td>
+                    <td style="text-align:center">${element.innerHTML ='<input type="button" >'}<td>`;
 
         render(template, node);
+ 
+        let readCell = document.getElementById('readCell')
 
-})
+        readCell.addEventListener('click', function() {
+            if (readCell.innerHTML = "Yes") {
+                readCell.innerHTML = "No";
+            } else if (readCell.innerHTML = "No") {
+                readCell.innerHTML = "Yes";
+            }
+        })
+    })
 }
 
 
