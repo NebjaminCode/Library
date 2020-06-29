@@ -66,6 +66,9 @@ function addBookToLibrary() {
     };
     renderHead()
 
+let i = 1;
+console.log(i)
+
 function rendering () {
     // rendering myLibrary contents
     myLibrary.forEach(function(element){
@@ -73,21 +76,22 @@ function rendering () {
                     <td style="padding-left: 1%">${element.title}<td>
                     <td style="text-align:center">${element.author}<td>
                     <td style="text-align:center">${element.pages}<td>
-                    <td id="readCell" style="text-align:center">${element.read}<td>
-                    <td style="text-align:center">${element.innerHTML ='<input type="button" >'}<td>`;
+                    <td id="readCell${i}" style="text-align:center">${element.read}<td>
+                    <td style="text-align:center">${element.innerHTML ='<input type="button">'}<td>`;
 
         render(template, node);
  
-        let readCell = document.getElementById('readCell')
+        let readCell = document.getElementById(`readCell${i}`)
 
         readCell.addEventListener('click', function() {
-            if (readCell.innerHTML = "Yes") {
-                readCell.innerHTML = "No";
-            } else if (readCell.innerHTML = "No") {
-                readCell.innerHTML = "Yes";
+            if (readCell.innerHTML == "Yes") {
+                readCell.innerText = "No";
+            } else if (readCell.innerHTML == "No") {
+                readCell.innerText = "Yes";
             }
         })
-    })
+        i++
+    }) 
 }
 
 
@@ -99,7 +103,8 @@ submitNewBook.addEventListener('click', function() {
     addBookToLibrary()
 
     if (newBook.title && newBook.author && newBook.pages && newBook.pages >= 0) {
-            myLibrary.push(newBook)     
+            myLibrary.push(newBook)           
+  
     } else {
         alert('You have not filled out the form correctly, please try again.')
     }
@@ -112,7 +117,8 @@ submitNewBook.addEventListener('click', function() {
     newBookForm.style.visibility = 'hidden';
     newBookForm.style.marginTop = '-75px'
     newBookForm.style.opacity = '0';
-
+   
+    console.log(i)
 // styling
 const table = document.querySelector('table')
 const topRow = document.querySelector('tr')
